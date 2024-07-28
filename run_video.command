@@ -1,19 +1,17 @@
 #!/bin/bash
 
-# スクリプトのディレクトリを取得
-SCRIPT_DIR="$(dirname "$0")"
-
 # Pythonスクリプトのパスを指定
-SCRIPT_PATH="$SCRIPT_DIR/Video.py"
+SCRIPT_PATH="$(dirname "$0")/Video.py"
 
 # Pythonインタプリタのパスを指定
 PYTHON_PATH="/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"
 
-# パスにスクリプトのディレクトリを追加
-export PATH="$SCRIPT_DIR:$PATH"
+# ffmpegのパスを指定
+FFMPEG_PATH="$(dirname "$0")"
+export PATH="$FFMPEG_PATH:$PATH"
 
 # カレントディレクトリをスクリプトのある場所に変更
-cd "$SCRIPT_DIR"
+cd "$(dirname "$SCRIPT_PATH")"
 
 # スクリプトを実行
 $PYTHON_PATH $SCRIPT_PATH
